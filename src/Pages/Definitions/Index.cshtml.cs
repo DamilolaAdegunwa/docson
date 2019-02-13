@@ -60,8 +60,7 @@ namespace tomware.Docson.Pages
 
     public async Task OnGetAsync()
     {
-      var wwwRoot = _hostingEnvironment.WebRootPath;
-      var path = Path.Combine(wwwRoot, "types");
+      var path = Path.Combine(_hostingEnvironment.WebRootPath, "data/types");
 
       this.Defintions = await _service.GetTypes(path);
     }
