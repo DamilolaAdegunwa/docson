@@ -1,13 +1,5 @@
 TODO:
 -----
-- think of a cool product name
-  - docson => An integration event message documentation service!
-
-- idea
-  - service that documents "Integration event messages" for a system
-  - aims to be the place for providing information (documenting event massages) about 
-    system wide used "Integration Event Message" types
-
 - requirements
   [x] markdown enabled index page for providing purpose
   [x] download json schema for creating and validation a definition
@@ -27,3 +19,8 @@ TODO:
   - markdown parsing
     - https://www.nuget.org/packages/Westwind.AspNetCore.Markdown/
     - https://www.codemag.com/Article/1811071/Marking-up-the-Web-with-ASP.NET-Core-and-Markdown
+
+- preprocessors
+  - https://docs.microsoft.com/en-us/aspnet/core/client-side/less-sass-fa?view=aspnetcore-2.2
+  - https://docs.microsoft.com/en-us/aspnet/core/client-side/bundling-and-minification?view=aspnetcore-2.2&tabs=visual-studio
+  - https://www.iambacon.co.uk/blog/how-to-use-sass-in-asp-net-core-2-0-mvc
