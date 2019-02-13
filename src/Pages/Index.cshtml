@@ -1,0 +1,15 @@
+﻿@page
+@using Westwind.AspNetCore.Markdown
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<div class="jumbotron">
+  <h1>Docson<h1>
+  <h3>🕺 An integration event message type documentation service 🚀</h2>
+</div>
+
+<article>
+  @Markdown.ParseHtmlStringFromFile("~/index.md")
+</article>

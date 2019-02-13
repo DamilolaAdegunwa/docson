@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.tomware.ch/integrationmessage.schema.json",
+  "title": "Describes an integration message definition",
+  "description": "some description",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name of the message definition.",
+      "description": "Meaningful name for the message definition."
+    },
+    "version": {
+      "type": "number",
+      "title": "Version of the message.",
+      "description": "Provide a version number for the message."
+    },
+    "producer": {
+      "type": "string",
+      "title": "Producer of the message.",
+      "description": "Provide the name of the producer service that will publish this message."
+    },
+    "message": {
+      "type": "object",
+      "title": "The message definition.",
+      "description": "Provide the message that needs to be documented.",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "title": "Properties of the message definition.",
+          "description": "Properties of and instance of the message definition.",
+          "properties": {
+            "id": {
+              "type": "object",
+              "description": "A unique id of a message instance."
+            },
+            "timeStamp": {
+              "type": "object",
+              "description": "The timestamp of a message instance."
+            }
+          },
+          "required": [
+            "id",
+            "timeStamp"
+          ]
+        }
+      },
+      "required": [
+        "properties"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags for that apply to the message",
+      "description": "Provide tags that are related to the message (i.e. domain)",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "producer",
+    "message"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "./schema.json",
+  "name": "SampleMessage",
+  "version": 1.0,
+  "producer": "DeviceService",
+  "message": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "timeStamp": {
+        "type": "date"
+      },
+      "deviceIdent": {
+        "type": "string"
+      },
+      "configuration": {
+        "type": "string"
+      }
+    }
+  },
+  "tags": [
+    "DeviceService"
+  ]
+}

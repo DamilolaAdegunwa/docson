@@ -1,0 +1,29 @@
+TODO:
+-----
+- think of a cool product name
+  - docson => An integration event message documentation service!
+
+- idea
+  - service that documents "Integration event messages" for a system
+  - aims to be the place for providing information (documenting event massages) about 
+    system wide used "Integration Event Message" types
+
+- requirements
+  [x] markdown enabled index page for providing purpose
+  [x] download json schema for creating and validation a definition
+  [ ] browse definitions
+    - filter by version
+    - filter by producer
+  [ ] browse tags
+    - filter by tags
+  
+  - do not implement:
+    files can be provided as json from a source control system (read only)!
+    - upload definitions
+    - remove definitions
+
+- resources
+  - http://json-schema.org/learn/getting-started-step-by-step.html
+  - markdown parsing
+    - https://www.nuget.org/packages/Westwind.AspNetCore.Markdown/
+    - https://www.codemag.com/Article/1811071/Marking-up-the-Web-with-ASP.NET-Core-and-Markdown
