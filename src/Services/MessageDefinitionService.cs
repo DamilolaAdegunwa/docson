@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace tomware.Docson.Services
 {
@@ -12,7 +13,7 @@ namespace tomware.Docson.Services
     public string Name { get; set; }
     public decimal Version { get; set; }
     public string Producer { get; set; }
-    public object Message { get; set; }
+    public JObject Message { get; set; }
     public List<string> Tags { get; set; }
 
     public string NormalizedTags
