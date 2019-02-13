@@ -1,0 +1,31 @@
+@page
+@model tomware.Docson.Pages.DefinitionsModel
+@{
+  ViewData["Title"] = "Definitions";
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+      <th>Producer</th>
+      <th>Tags</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var definition in Model.Defintions)
+    {
+      <tr>
+        <td>@definition.Name</td>
+        <td>@definition.Version</td>
+        <td>@definition.Producer</td>
+        <td>@definition.NormalizedTags</td>
+        <td>
+          <a asp-page="./Detail" asp-route-id="@definition.Name">detail</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

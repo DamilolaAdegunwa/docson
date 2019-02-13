@@ -20,6 +20,8 @@
     }
   },
   "tags": [
-    "DeviceService"
+    "DeviceService",
+    "SomeOther",
+    "Another"
   ]
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using tomware.Docson.Services;
 using Westwind.AspNetCore.Markdown;
 
 namespace tomware.Docson
@@ -53,6 +54,9 @@ namespace tomware.Docson
         });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+      // Own services
+      services.AddSingleton<IMessageDefinitionService, MessageDefinitionService>();
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
