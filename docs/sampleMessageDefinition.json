@@ -6,20 +6,32 @@
   "message": {
     "properties": {
       "id": {
-        "type": "string"
+        "type": "string",
+        "description": "A unique id for the message."
       },
       "timeStamp": {
-        "type": "date"
+        "type": "date",
+        "description": "Creation date for the message."
       },
       "deviceIdent": {
-        "type": "string"
+        "type": "string",
+        "description": "The unique ident of the device."
       },
       "configuration": {
-        "type": "string"
+        "type": "string",
+        "description": "A JSON string that represents the device configuration."
       }
     }
   },
+  "sample": {
+    "id": "SomeId-Guid-WhatElse",
+    "timeStamp": "2012-04-21T18:25:43-05:00",
+    "deviceIdent": "SomeDeviceIdentLike5",
+    "configuration": "SomeSerializedJsonString"
+  },
   "tags": [
-    "DeviceService"
+    "DeviceService",
+    "SomeOtherService",
+    "AnotherService"
   ]
 }

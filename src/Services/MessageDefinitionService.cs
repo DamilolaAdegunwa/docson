@@ -14,6 +14,7 @@ namespace tomware.Docson.Services
     public decimal Version { get; set; }
     public string Producer { get; set; }
     public JObject Message { get; set; }
+    public JObject Sample { get; set; }
     public List<string> Tags { get; set; }
 
     public string NormalizedTags

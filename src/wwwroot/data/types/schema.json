@@ -49,6 +49,11 @@
         "properties"
       ]
     },
+    "sample": {
+      "type": "object",
+      "title": "A sample for a message definition.",
+      "description": "Provides a sample instance of a message that needs to be documented."
+    },
     "tags": {
       "type": "array",
       "title": "Tags for that apply to the message",

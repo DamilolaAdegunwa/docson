@@ -4,7 +4,37 @@
   ViewData["Title"] = "Definitions Detail";
 }
 
-<div>
-  Definitions Detail
-  <h1>@Model.Defintion.Name</h1>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>@Model.Defintion.Name</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>@Model.Defintion.Version</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td>@Model.Defintion.Producer</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>@Model.Defintion.NormalizedTags</td>
+    </tr>
+    <tr>
+      <td>Message type</td>
+      <td><pre>@Model.Defintion.Message["properties"]</pre></td>
+    </tr>
+    <tr>
+      <td>Sample instance</td>
+      <td><pre>@Model.Defintion.Sample</pre></td>
+    </tr>
+  </tbody>
+</table>
