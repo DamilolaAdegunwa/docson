@@ -1,0 +1,25 @@
+{
+  "$schema": "./schema.json",
+  "name": "DeviceServiceReadyMessage",
+  "version": 1.0,
+  "producer": "DeviceService",
+  "message": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "A unique id for the message."
+      },
+      "timeStamp": {
+        "type": "date",
+        "description": "Creation date for the message."
+      }
+    }
+  },
+  "sample": {
+    "id": "SomeId-Guid-WhatElse",
+    "timeStamp": "2012-04-21T18:25:43-05:00"
+  },
+  "tags": [
+    "DeviceService"
+  ]
+}

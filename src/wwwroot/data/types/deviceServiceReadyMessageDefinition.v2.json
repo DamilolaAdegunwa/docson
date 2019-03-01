@@ -1,0 +1,30 @@
+{
+  "$schema": "./schema.json",
+  "name": "DeviceServiceReadyMessage",
+  "version": 2.0,
+  "producer": "DeviceService",
+  "message": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "A unique id for the message."
+      },
+      "timeStamp": {
+        "type": "date",
+        "description": "Creation date for the message."
+      },
+      "ident": {
+        "type": "string",
+        "description": "Ident of the device service."
+      }
+    }
+  },
+  "sample": {
+    "id": "SomeId-Guid-WhatElse",
+    "timeStamp": "2012-04-21T18:25:43-05:00",
+    "ident": "BarCodeScannerDeviceService"
+  },
+  "tags": [
+    "DeviceService"
+  ]
+}

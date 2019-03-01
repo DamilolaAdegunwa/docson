@@ -21,7 +21,7 @@ namespace tomware.Docson.Pages
 
     public void OnGet(string id)
     {
-      this.Defintion = _service.GetByName(id);
+      this.Defintion = _service.GetByKey(id);
     }
   }
 }

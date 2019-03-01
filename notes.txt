@@ -15,6 +15,7 @@ TODO:
     - remove definitions
 
 - resources
+  - https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-2.2&tabs=visual-studio
   - http://json-schema.org/learn/getting-started-step-by-step.html
   - markdown parsing
     - https://www.nuget.org/packages/Westwind.AspNetCore.Markdown/

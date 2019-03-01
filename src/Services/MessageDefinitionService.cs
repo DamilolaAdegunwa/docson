@@ -10,6 +10,7 @@ namespace tomware.Docson.Services
 {
   public class MessageDefinition
   {
+    public string Key { get; set; }
     public string Name { get; set; }
     public decimal Version { get; set; }
     public string Producer { get; set; }
@@ -30,7 +31,7 @@ namespace tomware.Docson.Services
   {
     Task<IEnumerable<MessageDefinition>> GetTypes(string path);
 
-    MessageDefinition GetByName(string name);
+    MessageDefinition GetByKey(string key);
 
     void Invalidate();
   }
@@ -57,14 +58,14 @@ namespace tomware.Docson.Services
       return this.Definitions.Values.OrderBy(o => o.Name);
     }
 
-    public MessageDefinition GetByName(string name)
+    public MessageDefinition GetByKey(string key)
     {
-      if (!this.Definitions.ContainsKey(name))
+      if (!this.Definitions.ContainsKey(key))
       {
-        throw new InvalidDataException($"Type with name ${nameof(name)} does not exist!");
+        throw new InvalidDataException($"Type with name ${nameof(key)} does not exist!");
       }
 
-      return this.Definitions[name];
+      return this.Definitions[key];
     }
 
     public void Invalidate()
@@ -81,8 +82,16 @@ namespace tomware.Docson.Services
 
         var type = await File.ReadAllTextAsync(file);
         var definition = JsonConvert.DeserializeObject<MessageDefinition>(type);
-        this.Definitions.TryAdd(definition.Name, definition);
+        this.Definitions.TryAdd(CreateKey(definition), definition);
       }
+    }
+
+    public static string CreateKey(MessageDefinition definition)
+    {
+      var key = $"{definition.Name}.{definition.Version.ToString()}";
+      definition.Key = key;
+
+      return key;
     }
   }
 }

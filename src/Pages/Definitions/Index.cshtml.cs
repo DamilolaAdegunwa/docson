@@ -3,7 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using tomware.Docson.Services;
 
 namespace tomware.Docson.Pages
@@ -15,27 +17,43 @@ namespace tomware.Docson.Pages
 
     public IEnumerable<MessageDefinition> Defintions { get; set; }
 
-    public IEnumerable<string> Versions
+    public SelectList Names
     {
       get
       {
-        return this.Defintions
+        var items = this.Defintions
+          .Select(d => d.Name)
+          .Distinct();
+
+        return new SelectList(items);
+      }
+    }
+
+    public SelectList Versions
+    {
+      get
+      {
+        var items = this.Defintions
           .Select(d => d.Version.ToString())
           .Distinct();
+
+        return new SelectList(items);
       }
     }
 
-    public IEnumerable<string> Producers
+    public SelectList Producers
     {
       get
       {
-        return this.Defintions
+        var items = this.Defintions
           .Select(d => d.Producer)
           .Distinct();
+
+        return new SelectList(items);
       }
     }
 
-    public IEnumerable<string> Tags
+    public SelectList Tags
     {
       get
       {
@@ -45,24 +63,69 @@ namespace tomware.Docson.Pages
           tags.AddRange(d.Tags);
         }
 
-        return tags.Distinct();
+        var items = tags.Distinct();
+
+        return new SelectList(items);
       }
     }
+
+    [BindProperty]
+    public string Name { get; set; }
+    [BindProperty]
+    public string Version { get; set; }
+    [BindProperty]
+    public string Producer { get; set; }
+    [BindProperty]
+    public string Tag { get; set; }
 
     public DefinitionsModel(
       IHostingEnvironment hostingEnvironment,
       IMessageDefinitionService service
     )
     {
-      _hostingEnvironment = hostingEnvironment;
-      _service = service;
+      this._hostingEnvironment = hostingEnvironment;
+      this._service = service;
     }
 
     public async Task OnGetAsync()
     {
-      var path = Path.Combine(_hostingEnvironment.WebRootPath, "data/types");
+      this.Defintions = await this._service.GetTypes(this.GetPath());
+    }
 
-      this.Defintions = await _service.GetTypes(path);
+    public async Task OnPostAsync()
+    {
+      var definitions = await this._service.GetTypes(this.GetPath());
+
+      if (!string.IsNullOrWhiteSpace(this.Name))
+      {
+        definitions = definitions
+          .Where(d => d.Name == this.Name);
+      }
+
+      if (!string.IsNullOrWhiteSpace(this.Version))
+      {
+        definitions = definitions
+          .Where(d => d.Version.ToString() == this.Version);
+      }
+
+      if (!string.IsNullOrWhiteSpace(this.Producer))
+      {
+        definitions = definitions
+           .Where(d => d.Producer == this.Producer);
+      }
+
+      if (!string.IsNullOrWhiteSpace(this.Tag))
+      {
+        definitions = definitions
+          .Where(d => d.Tags.Contains(this.Tag));
+      }
+
+      this.Defintions = definitions;
+    }
+
+    private string GetPath()
+    {
+      return Path.Combine(this._hostingEnvironment.WebRootPath, "data/types");
     }
   }
 }
