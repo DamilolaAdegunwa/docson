@@ -18,26 +18,29 @@
     <tbody>
       <tr>
         <th>
-          <select asp-for="Name" asp-items="Model.Names" onchange="DoPostBack();">
+          <select asp-for="Name" asp-items="Model.Names">
             <option value=""></option>
           </select>
         </th>
         <th>
-          <select asp-for="Version" asp-items="Model.Versions" onchange="DoPostBack();">
+          <select asp-for="Version" asp-items="Model.Versions">
             <option value=""></option>
           </select>
         </th>
         <th>
-          <select asp-for="Producer" asp-items="Model.Producers" onchange="DoPostBack();">
+          <select asp-for="Producer" asp-items="Model.Producers">
             <option value=""></option>
           </select>
         </th>
         <th>
-          <select asp-for="Tag" asp-items="Model.Tags" onchange="DoPostBack();">
+          <select asp-for="Tag" asp-items="Model.Tags">
             <option value=""></option>
           </select>
         </th>
-        <th><input type="submit" value="Filter" /></th>
+        <th>
+          <input type="submit" value="Filter" />
+          <input type="submit" value="Invalidate" asp-page-handler="Invalidate" />
+        </th>
       </tr>
       @foreach (var definition in Model.Defintions)
       {

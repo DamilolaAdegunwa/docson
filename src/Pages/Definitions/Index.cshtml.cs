@@ -123,6 +123,13 @@ namespace tomware.Docson.Pages
       this.Defintions = definitions;
     }
 
+    public async Task OnPostInvalidateAsync()
+    {
+      this._service.Invalidate();
+
+      await this.OnGetAsync();
+    }
+
     private string GetPath()
     {
       return Path.Combine(this._hostingEnvironment.WebRootPath, "data/types");
