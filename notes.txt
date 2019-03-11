@@ -3,10 +3,9 @@ TODO:
 - requirements
   [x] markdown enabled index page for providing purpose
   [x] download json schema for creating and validation a definition
-  [ ] browse definitions
+  [x] browse definitions
     - filter by version
     - filter by producer
-  [ ] browse tags
     - filter by tags
   
   - do not implement:
