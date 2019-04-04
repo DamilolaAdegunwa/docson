@@ -34,14 +34,14 @@
               "type": "object",
               "description": "A unique id of a message instance."
             },
-            "timeStamp": {
+            "timestamp": {
               "type": "object",
               "description": "The timestamp of a message instance."
             }
           },
           "required": [
             "id",
-            "timeStamp"
+            "timestamp"
           ]
         }
       },

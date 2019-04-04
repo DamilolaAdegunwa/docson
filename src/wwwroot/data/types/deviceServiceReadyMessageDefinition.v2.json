@@ -9,7 +9,7 @@
         "type": "string",
         "description": "A unique id for the message."
       },
-      "timeStamp": {
+      "timestamp": {
         "type": "date",
         "description": "Creation date for the message."
       },
@@ -21,7 +21,7 @@
   },
   "sample": {
     "id": "SomeId-Guid-WhatElse",
-    "timeStamp": "2012-04-21T18:25:43-05:00",
+    "timestamp": "2012-04-21T18:25:43-05:00",
     "ident": "BarCodeScannerDeviceService"
   },
   "tags": [

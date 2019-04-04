@@ -29,20 +29,21 @@ namespace tomware.Docson
           // optional custom MarkdigPipeline (using MarkDig; for extension methods)
           config.ConfigureMarkdigPipeline = builder =>
           {
-            builder.UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Default)
-                      .UsePipeTables()
-                      .UseGridTables()
-                      .UseAutoIdentifiers(AutoIdentifierOptions.GitHub) // Headers get id="name" 
-                      .UseAutoLinks() // URLs are parsed into anchors
-                      .UseAbbreviations()
-                      .UseYamlFrontMatter()
-                      .UseEmojiAndSmiley(true)
-                      .UseListExtras()
-                      .UseFigures()
-                      .UseTaskLists()
-                      .UseCustomContainers()
-                      //.DisableHtml()   // renders HTML tags as text including script
-                      .UseGenericAttributes();
+            builder
+              .UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Default)
+              .UsePipeTables()
+              .UseGridTables()
+              .UseAutoIdentifiers(AutoIdentifierOptions.GitHub) // Headers get id="name" 
+              .UseAutoLinks() // URLs are parsed into anchors
+              .UseAbbreviations()
+              .UseYamlFrontMatter()
+              .UseEmojiAndSmiley(true)
+              .UseListExtras()
+              .UseFigures()
+              .UseTaskLists()
+              .UseCustomContainers()
+              //.DisableHtml()   // renders HTML tags as text including script
+              .UseGenericAttributes();
           };
         });
 
