@@ -4,14 +4,12 @@ TODO:
   [x] markdown enabled index page for providing purpose
   [x] download json schema for creating and validation a definition
   [x] browse definitions
-    - filter by version
-    - filter by producer
-    - filter by tags
-  
-  - do not implement:
-    files can be provided as json from a source control system (read only)!
-    - upload definitions
-    - remove definitions
+    [x] filter by version
+    [x] filter by producer
+    [x] filter by tags
+  [x] files can be provided as json from a source control system (read only)!
+  [-] upload definitions
+  [-] remove definitions
 
 - resources
   - https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-2.2&tabs=visual-studio
