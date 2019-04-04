@@ -45,7 +45,7 @@ The following is a sample of a `SampleMessage` integration event message.
       "id": {
         "type": "string"
       },
-      "timeStamp": {
+      "timestamp": {
         "type": "date"
       },
       "deviceIdent": {
@@ -66,7 +66,7 @@ The following is a sample of a `SampleMessage` integration event message.
 ```json
 {
   "id": "SomeId-Guid-WhatElse",
-  "timeStamp": "2012-04-21T18:25:43-05:00",
+  "timestamp": "2012-04-21T18:25:43-05:00",
   "deviceIdent": "SomeDeviceIdentLike5",
   "configuration": "SomeSerializedJsonString"
 }
