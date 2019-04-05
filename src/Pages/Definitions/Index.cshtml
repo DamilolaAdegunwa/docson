@@ -42,7 +42,7 @@
           <input type="submit" value="Invalidate" asp-page-handler="Invalidate" />
         </th>
       </tr>
-      @foreach (var definition in Model.Defintions)
+      @foreach (var definition in Model.FilteredDefintions)
       {
         <tr>
           <td>@definition.Name</td>

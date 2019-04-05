@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using tomware.Docson.Services;
 
 namespace tomware.Docson.Pages
@@ -16,6 +16,7 @@ namespace tomware.Docson.Pages
     private readonly IMessageDefinitionService _service;
 
     public IEnumerable<MessageDefinition> Defintions { get; set; }
+    public IEnumerable<MessageDefinition> FilteredDefintions { get; set; }
 
     public SelectList Names
     {
@@ -89,12 +90,14 @@ namespace tomware.Docson.Pages
 
     public async Task OnGetAsync()
     {
-      this.Defintions = await this._service.GetTypes(this.GetPath());
+      await this.SetProperties();
     }
 
     public async Task OnPostAsync()
     {
-      var definitions = await this._service.GetTypes(this.GetPath());
+      await this.SetProperties();
+
+      var definitions = this.FilteredDefintions;
 
       if (!string.IsNullOrWhiteSpace(this.Name))
       {
@@ -111,7 +114,7 @@ namespace tomware.Docson.Pages
       if (!string.IsNullOrWhiteSpace(this.Producer))
       {
         definitions = definitions
-           .Where(d => d.Producer == this.Producer);
+          .Where(d => d.Producer == this.Producer);
       }
 
       if (!string.IsNullOrWhiteSpace(this.Tag))
@@ -120,7 +123,7 @@ namespace tomware.Docson.Pages
           .Where(d => d.Tags.Contains(this.Tag));
       }
 
-      this.Defintions = definitions;
+      this.FilteredDefintions = definitions;
     }
 
     public async Task OnPostInvalidateAsync()
@@ -128,6 +131,12 @@ namespace tomware.Docson.Pages
       this._service.Invalidate();
 
       await this.OnGetAsync();
+    }
+
+    private async Task SetProperties()
+    {
+      this.Defintions = await this._service.GetTypes(this.GetPath());
+      this.FilteredDefintions = this.Defintions.ToList();
     }
 
     private string GetPath()

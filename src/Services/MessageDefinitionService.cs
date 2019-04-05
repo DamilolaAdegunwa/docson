@@ -1,10 +1,10 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace tomware.Docson.Services
 {
@@ -52,8 +52,8 @@ namespace tomware.Docson.Services
         return this.Definitions.Values.OrderBy(o => o.Name);
       }
 
-      // go an load them!
-      await LoadDefintions(path);
+      // go and load them!
+      await LoadDefinitions(path);
 
       return this.Definitions.Values.OrderBy(o => o.Name);
     }
@@ -73,7 +73,7 @@ namespace tomware.Docson.Services
       this.Definitions.Clear();
     }
 
-    private async Task LoadDefintions(string path)
+    private async Task LoadDefinitions(string path)
     {
       var files = Directory.GetFiles(path);
       foreach (var file in files)

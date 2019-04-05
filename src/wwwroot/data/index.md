@@ -14,7 +14,7 @@ It provides the following features:
 
 
 ## Usage
-1. First go an **[download](./types/schema.json)** the definition schema.
+1. First go and **[download](./types/schema.json)** the definition schema.
 2. Create your definition type.
 3. Validate your integration message type (link to json schema.net).
 4. Once it is valid store your definition type as an asset under **wwwroot/data/types**.
